@@ -96,42 +96,46 @@ endif()
 
 # Añado las librerías externas. Dependiendo de ué método de
 # gestión de paquetes quiero usar: Conan, VCPKG o CPM
-if(USE_CONAN)
-    message(STATUS "Usando Conan")
-    include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
-    find_package(nlohmann_json REQUIRED)
-    find_package(fmt REQUIRED)
-    find_package(spdlog REQUIRED)
-    find_package(Catch2 REQUIRED)
-    find_package(cxxopts REQUIRED)
-elseif(USE_VCPKG)
-    message(STATUS "Usando VCPKG")
-    include(${CMAKE_SOURCE_DIR}/external/vcpkg/scripts/buildsystems/vcpkg.cmake)
-    find_package(nlohmann_json REQUIRED)
-    find_package(fmt REQUIRED)
-    find_package(spdlog REQUIRED)
-    find_package(Catch2 REQUIRED)
-    find_package(cxxopts REQUIRED)
-else(USE_CPM)
-    message(STATUS "Usando CPM")
-    include(CPM)
-    # Dejo un par como ejemplo. Comentar o descomentar o añadir...
-    cpmaddpackage("gh:gabime/spdlog@1.11.0")
-    cpmaddpackage("gh:catchorg/Catch2@2.13.9")
-    #cpmaddpackage("gh:fmtlib/fmt#9.1.0")
-    #cpmaddpackage("gh:nlohmann/json@3.11.2")
-    #cpmaddpackage("gh:jarro2783/cxxopts@3.1.1")
+if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+    if(USE_CONAN)
+        message(STATUS "Usando Conan")
+        include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
+        find_package(nlohmann_json REQUIRED)
+        find_package(fmt REQUIRED)
+        find_package(spdlog REQUIRED)
+        find_package(Catch2 REQUIRED)
+        find_package(cxxopts REQUIRED)
+    elseif(USE_VCPKG)
+        message(STATUS "Usando VCPKG")
+        include(${CMAKE_SOURCE_DIR}/external/vcpkg/scripts/buildsystems/vcpkg.cmake)
+        find_package(nlohmann_json REQUIRED)
+        find_package(fmt REQUIRED)
+        find_package(spdlog REQUIRED)
+        find_package(Catch2 REQUIRED)
+        find_package(cxxopts REQUIRED)
+    else(USE_CPM)
+        message(STATUS "Usando CPM")
+        include(CPM)
+        # Dejo un par como ejemplo. Comentar o descomentar o añadir...
+        cpmaddpackage("gh:gabime/spdlog@1.11.0")
+        cpmaddpackage("gh:catchorg/Catch2@2.13.9")
+        #cpmaddpackage("gh:fmtlib/fmt#9.1.0")
+        #cpmaddpackage("gh:nlohmann/json@3.11.2")
+        #cpmaddpackage("gh:jarro2783/cxxopts@3.1.1")
+    endif()
 endif()
 
 # Librerías externas binarias.
 
 # Boost libraries
 # Ejemplo donde añado system, filesystem y regex
-find_package(Boost 1.74.0
-        COMPONENTS
+if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+    find_package(Boost 1.74.0
+        REQUIRED
             system
             filesystem
             regex)
+endif()
 
 # Añado sub directorios
 add_subdirectory(configured)

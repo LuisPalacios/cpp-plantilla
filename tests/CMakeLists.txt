@@ -5,7 +5,10 @@ if(ENABLE_TESTING)
     add_executable(${UNIT_TEST_NAME} ${TEST_SOURCES} ${TEST_HEADERS})
 
     target_link_libraries(${UNIT_TEST_NAME} PUBLIC ${LIBRARY_NAME})
-    target_link_libraries(${UNIT_TEST_NAME} PRIVATE Catch2::Catch2)
+
+    if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+        target_link_libraries(${UNIT_TEST_NAME} PRIVATE Catch2::Catch2)
+    endif()
 
     if(${ENABLE_WARNINGS})
         target_set_warnings(

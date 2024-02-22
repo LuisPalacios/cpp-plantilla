@@ -17,17 +17,20 @@ set(LIBRARY_INCLUDES
 # Defino que quiero "linkar" con mi librería
 add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
 target_include_directories(${LIBRARY_NAME} PUBLIC ${LIBRARY_INCLUDES})
-target_link_libraries(
-    ${LIBRARY_NAME}
-    PRIVATE
-            # Descomentar/comentar lo que te interese o añade más...
-            # Nota: Necesitarás compilarlas desde el CMakeLists.txt principal.
-            #       revisa la sección del gestor de paquetes.
 
-            #nlohmann_json::nlohmann_json
-            #fmt::fmt
-            #cxxopts::cxxopts
-            spdlog::spdlog)
+if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+    target_link_libraries(
+        ${LIBRARY_NAME}
+        PRIVATE
+                # Descomentar/comentar lo que te interese o añade más...
+                # Nota: Necesitarás compilarlas desde el CMakeLists.txt principal.
+                #       revisa la sección del gestor de paquetes.
+
+                #nlohmann_json::nlohmann_json
+                #fmt::fmt
+                #cxxopts::cxxopts
+                spdlog::spdlog)
+endif()
 
 # Si habilité el añadir más warnings, lo ejecuto aquí
 if(${ENABLE_WARNINGS})

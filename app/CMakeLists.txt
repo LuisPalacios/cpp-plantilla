@@ -10,16 +10,18 @@ add_executable(
     ${EXECUTABLE_NAME}
     ${APP_SOURCES})
 
-# Hago el link del ejecutable con las librerías
-target_link_libraries( ${EXECUTABLE_NAME}
-    PRIVATE
-    ${LIBRARY_NAME}     # Mi librería propia
+if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+    # Hago el link del ejecutable con las librerías
+    target_link_libraries( ${EXECUTABLE_NAME}
+        PRIVATE
+        ${LIBRARY_NAME}     # Mi librería propia
 
-    # Librerías binarias o externas adicionales, (Ver /CMakeLists.txt)
-    Boost::regex
-    #fmt::fmt
-    spdlog::spdlog
-    )
+        # Librerías binarias o externas adicionales, (Ver /CMakeLists.txt)
+        Boost::regex
+        #fmt::fmt
+        spdlog::spdlog
+        )
+endif()
 
 # Si habilité el añadir más warnings, lo ejecuto aquí
 if(${ENABLE_WARNINGS})
