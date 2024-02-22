@@ -127,10 +127,11 @@ endif()
 
 # Boost libraries
 # Ejemplo donde añado system, filesystem y regex
-find_package(Boost 1.74.0 REQUIRED
-        system
-        filesystem
-        regex)
+find_package(Boost 1.74.0
+        COMPONENTS
+            system
+            filesystem
+            regex)
 
 # Añado sub directorios
 add_subdirectory(configured)
