@@ -142,5 +142,19 @@ $ git push --set-upstream origin gh-pages
 
 - Verifica que tienes el fichero [~/.github/workflows/documentation.yaml](./.github/workflows/documentation.yml) preparado con las acciones a realizar. 
 
-- Haz un push al repositorio. 
-- 
+- Verifica que tienes permisos.
+
+  - Haz clic en la pestaña Configuración / Settings.
+  - Haz clic en `Actions->General` en la parte izquierda.
+  - Workflow Permissions: Read and write
+
+- Haz un push al repositorio.
+
+```shell
+$ touch algo.txt
+$ git push
+```
+
+    - Ve a tu repositorio -> Actions (debería estar construyendo la documentación)
+
+</br>
