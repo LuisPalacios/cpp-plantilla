@@ -1,4 +1,4 @@
-name: Ubuntu CI Test
+name: MacOS CI Test
 
 on:
     push:
@@ -8,24 +8,20 @@ on:
 
 jobs:
     build:
-        runs-on: ubuntu-latest
+        runs-on: macos-latest
         steps:
             - uses: actions/checkout@v4
-            - name: install
-              run: |
-                  sudo apt-get install gcovr lcov
             - name: prepare
               run: |
                   make prepare
             - name: configure
               run: |
-                  cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=On
+                  cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE="Debug"
             - name: building
               run: |
-                  cmake --build build --config Debug --target coverage -j4
+                  cmake --build build --config Debug --target unit_tests -j4
             - name: testing
               run: |
                   cd build
                   cd tests
                   ./unit_tests
-                  bash <(curl -s https://codecov.io/bash)
