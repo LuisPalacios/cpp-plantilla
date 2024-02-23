@@ -1,4 +1,4 @@
-name: pre-commit
+name: LP - pre-commit
 
 on:
     push:

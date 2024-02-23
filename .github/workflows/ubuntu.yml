@@ -1,4 +1,4 @@
-name: Ubuntu CI Test
+name: LP - CI Tests en Ubuntu
 
 on:
     push:
@@ -13,7 +13,7 @@ jobs:
             - uses: actions/checkout@v4
             - name: install
               run: |
-                  sudo apt-get install gcovr lcov
+                  sudo apt-get install gcovr lcov libboost-dev
             - name: prepare
               run: |
                   make prepare
