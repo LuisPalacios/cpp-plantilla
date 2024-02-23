@@ -96,7 +96,7 @@ endif()
 
 # Añado las librerías externas. Dependiendo de ué método de
 # gestión de paquetes quiero usar: Conan, VCPKG o CPM
-if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+if(NOT DEFINED IGNORELIBS) # Ignoro las librerias para subir la doc a  github pages
     if(USE_CONAN)
         message(STATUS "Usando Conan")
         include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
@@ -129,7 +129,7 @@ endif()
 
 # Boost libraries
 # Ejemplo donde añado system, filesystem y regex
-if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+if(NOT DEFINED IGNORELIBS) # Ignoro las librerias para subir la doc a  github pages
     find_package(Boost 1.74.0
         REQUIRED
             system

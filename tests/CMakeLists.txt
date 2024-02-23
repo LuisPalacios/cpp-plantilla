@@ -6,7 +6,7 @@ if(ENABLE_TESTING)
 
     target_link_libraries(${UNIT_TEST_NAME} PUBLIC ${LIBRARY_NAME})
 
-    if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+    if(NOT DEFINED IGNORELIBS) # Ignoro las librerias para subir la doc a  github pages
         target_link_libraries(${UNIT_TEST_NAME} PRIVATE Catch2::Catch2)
     endif()
 

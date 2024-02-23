@@ -10,7 +10,7 @@ add_executable(
     ${EXECUTABLE_NAME}
     ${APP_SOURCES})
 
-if(NOT ${IGNORELIBS}) # Ignoro las librerias para subir la doc a  github pages
+if(NOT DEFINED IGNORELIBS) # Ignoro las librerias para subir la doc a  github pages
     # Hago el link del ejecutable con las librerías
     target_link_libraries( ${EXECUTABLE_NAME}
         PRIVATE
