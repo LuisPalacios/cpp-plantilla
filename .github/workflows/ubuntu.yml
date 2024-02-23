@@ -1,4 +1,4 @@
-name: CI Tests en Ubuntu
+name: CI Tests Ubuntu
 
 on:
     push:

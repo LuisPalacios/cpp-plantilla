@@ -2,8 +2,8 @@
 
 ![C++](https://img.shields.io/badge/C%2B%2B-11%2F14%2F17%2F20%2F23-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Linux Build](https://github.com/LuisPalacios/CppPlantilla/workflows/CI%20Tests%20en%20Ubuntu/badge.svg)
-![MacOS Build](https://github.com/LuisPalacios/CppPlantilla/workflows/CI%20Tests%20en%20MacOS/badge.svg)
+![Linux Build](https://github.com/LuisPalacios/CppPlantilla/actions/workflows/ubuntu.yml/badge.svg)
+![MacOS Build](https://github.com/LuisPalacios/CppPlantilla/actions/workflows/macos.yml/badge.svg)
 [![codecov](https://codecov.io/gh/LuisPalacios/CppPlantilla/graph/badge.svg?token=VXUOCDCWQ5)](https://codecov.io/gh/LuisPalacios/CppPlantilla)
 
 &nbsp;
@@ -22,6 +22,7 @@
 - Modifica este fichero `./README.md`
   - Cambia la primera línea por el título de tu proyecto
   - Cambia los enlaces a los cuatro Badges: C++, Licencia, Build, Codecov.
+  - Cambia el contenido desde `## Cómo utilizar la plantilla` por el tuyo.
 - Empieza a codificar, cambia los fuentes incluidos como ejemplo:
   - `./tests/main.cc`
   - `./src/my_lib/my_lib.cc`
