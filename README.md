@@ -24,8 +24,8 @@
   - Modifica el fichero `./docs/Doxyfile` y cambia la siguiente línea.
     - **PROJECT_NAME = "C++ Plantilla LuisPa"**
 - Entra en tu cuenta de [codecov.io](https://codecov.io) y configura el nuevo repo.
-  - **CODECOV_TOKEN**: Añádelo como `repository secret` en el nuevo repo settings > secrets and variable > actions
-  - **.github/workflows/ubuntu.yml**: Cambia en la última línea (`slug: TuCuentaGitHub/CppPlantilla`) y pon tu usuario y el nombre de tu nuevo repo.
+  - **CODECOV_TOKEN**: Añade nuevo `repository secret` en Repo > settings > secrets ... > actions
+  - `.github/workflows/ubuntu.yml`: Cambia (`slug: TuCuentaGitHub/CppPlantilla`) con tu usuario/repo.
 - Verifica y adapta el fichero `.vscode/settings.json` a tus gustos.
 - Modifica este fichero `./README.md`
   - Cambia la primera línea por el título de tu proyecto
