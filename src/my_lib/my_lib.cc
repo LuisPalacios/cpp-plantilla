@@ -2,8 +2,8 @@
  *
  */
 
-#include <iostream>
 #include "my_lib.h"
+#include <iostream>
 
 /**
  * @brief Prints out hello world and tests the program

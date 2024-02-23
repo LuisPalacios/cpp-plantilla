@@ -134,13 +134,13 @@ $ git push --set-upstream origin gh-pages
 ```
 
 - Entra en GitHub desde el navegador y activa GitHub Pages.
-  
+
   - Haz clic en la pestaña Configuración / Settings.
   - Haz clic en `Pages` en la parte izquierda.
   - Source: Deploy from a branch
   - Branch: gh-pages  Directorio: /(root))  Clic en SAVE
 
-- Verifica que tienes el fichero [~/.github/workflows/documentation.yaml](./.github/workflows/documentation.yml) preparado con las acciones a realizar. 
+- Verifica que tienes el fichero [~/.github/workflows/documentation.yaml](./.github/workflows/documentation.yml) preparado con las acciones a realizar.
 
 - Verifica que tienes permisos.
 
