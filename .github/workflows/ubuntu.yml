@@ -1,4 +1,4 @@
-name: LP - CI Tests en Ubuntu
+name: CI Tests en Ubuntu
 
 on:
     push:
