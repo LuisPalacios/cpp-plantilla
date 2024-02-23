@@ -15,6 +15,14 @@
   - **Repository template**: CppPlantilla
   - **Include All Branches**: `[x]` (Para que incluya `gh-pages`)
   - **Description**: Añadir una descripción opcional.
+- Realiza los siguientes cambios para que se publique en tu GitHub Pages
+  - Repositorio -> Settings -> Pages
+    - **Source: Deploy from a branch**
+    - **Branch: gh-pages  Directorio: /(root))  Clic en SAVE**
+  - Repositorio -> Settings -> Actions -> General
+    - **Workflow Permissions: Read and write**
+  - Modifica el fichero `./docs/Doxyfile` y cambia la siguiente línea.
+    - **PROJECT_NAME = "C++ Plantilla LuisPa"**
 - Entra en tu cuenta de [codecov.io](https://codecov.io) y configura el nuevo repo.
   - **CODECOV_TOKEN**: Añádelo como `repository secret` en el nuevo repo settings > secrets and variable > actions
   - **.github/workflows/ubuntu.yml**: Cambia en la última línea (`slug: TuCuentaGitHub/CppPlantilla`) y pon tu usuario y el nombre de tu nuevo repo.
@@ -35,18 +43,18 @@
 
 &nbsp;
 
-## Documentación CppPlantilla
+## Qué es esta plantilla?
 
-Plantilla para crear un proyecto en C++:
+Puedes utilizarla a la hora de crear un repositorio nuevo para un proyecto C++ en tu cuenta de GitHub. Incluye todo lo siguiente:
 
-- Bibliotecas, ejecutables y código de prueba separados en carpetas distintas
+- Buenas prácticas separando los fuentes y las cabeceras en carpetas distintas
 - Uso de CMake para construir y compilar
-- Preparado para usar bibliotecas externas.
+- Soporte de bibliotecas externas, usando uno de los tres siguientes gestores:
   - Gestor de paquetes [CPM](https://github.com/cpm-cmake/CPM.cmake)
   - Gestor de paquetes [Conan](https://conan.io/)
   - Gestor de paquetes [VCPKG](https://github.com/microsoft/vcpkg)
-- Unit Tests con [Catch2](https://github.com/catchorg/Catch2) v2
-- Bibliotecas de propósito general: [JSON](https://github.com/nlohmann/json), [spdlog](https://github.com/gabime/spdlog), [cxxopts](https://github.com/jarro2783/cxxopts) y [fmt](https://github.com/fmtlib/fmt)
+  - Incluye varias bibliotecas de propósito general a modo de ejemplo: [JSON](https://github.com/nlohmann/json), [spdlog](https://github.com/gabime/spdlog), [cxxopts](https://github.com/jarro2783/cxxopts) y [fmt](https://github.com/fmtlib/fmt)
+- Incluye Unit Tests con [Catch2](https://github.com/catchorg/Catch2) v2
 - Pruebas de integración continua con Github Actions y [pre-commit](https://pre-commit.com/)
 - Informes de cobertura del código, incluida la carga automática a [Codecov](https://codecov.io)
 - Documentación del código con [Doxygen](https://doxygen.nl/) y [Github Pages](https://franneck94.github.io/CppProjectTemplate/)
@@ -96,7 +104,7 @@ El código de la librería está en [src/](src/), el programa en [app/](app) y l
 
 ## Instalación y construcción
 
-Primero hacer un clone
+Primero hacer un clone y seguir los pasos que describo al principio (*Cómo utilizar la plantilla*).
 
 ```shell
 git clone --recursive https://github.com/LuisPalacios/CppPlantilla.git
@@ -146,6 +154,8 @@ Si quieres saber más sobre CMake consulta [este artículo](./README_cmake.md).
 &nbsp;
 
 ## Preparar GitHub Pages
+
+Si has creado un repositorio nuevo partiendo de esta plantilla no necesitas crear la rama `gh-pages+ de nuevo, dejo aquí documentado todo el proceso solo como referencia.
 
 GitHub permite, a través de su servicio *GitHub Pages* hospedar tus propias páginas web en cada uno de tus repositorios. Podemos usarlo para subir la documentación de nuestro repositorio.
 
