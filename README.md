@@ -40,6 +40,11 @@
   - `./CMakeLists.txt`
   - `./src/my_lib/CMakeLists.txt`
   - `./app/CMakeLists.txt`
+- Ejecuta `pre-commit` en la raiz del repo
+  - `$ pre-commit install`
+  - `$ pre-commit run --all-files`
+- Sube el Repo actualizado
+  - `$ git add. && git commit -am "repo actualizado" && git push
 
 &nbsp;
 
