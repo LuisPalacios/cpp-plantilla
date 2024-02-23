@@ -1,4 +1,4 @@
-name: LP - CI Tests en Windows
+name: CI Tests en Windows
 
 on:
     push:

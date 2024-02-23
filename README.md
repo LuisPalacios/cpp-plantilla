@@ -2,10 +2,41 @@
 
 ![C++](https://img.shields.io/badge/C%2B%2B-11%2F14%2F17%2F20%2F23-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Linux Build](https://github.com/LuisPalacios/CppPlantilla/workflows/Ubuntu%20CI%20Test/badge.svg)
+![Linux Build](https://github.com/LuisPalacios/CppPlantilla/workflows/CI%20Tests%20en%20Ubuntu/badge.svg)
+![MacOS Build](https://github.com/LuisPalacios/CppPlantilla/workflows/CI%20Tests%20en%20MacOS/badge.svg)
 [![codecov](https://codecov.io/gh/LuisPalacios/CppPlantilla/graph/badge.svg?token=VXUOCDCWQ5)](https://codecov.io/gh/LuisPalacios/CppPlantilla)
 
-Ejemplod de plantilla para crear un proyecto en C++:
+&nbsp;
+
+## Cómo utilizar la plantilla
+
+- Desde GitHub, clona esta plantilla y úsala al crear un nuevo Repositorio:
+  - **Repository name**: Nombre de tu nuevo repositorio
+  - **Repository template**: CppPlantilla
+  - **Include All Branches**: `[x]` (Para que incluya `gh-pages`)
+  - **Description**: Añadir una descripción opcional.
+- Entra en tu cuenta de [codecov.io](https://codecov.io) y configura el nuevo repo.
+  - **CODECOV_TOKEN**: Añádelo como `repository secret` en el nuevo repo settings > secrets and variable > actions
+  - **.github/workflows/ubuntu.yml**: Cambia en la última línea (`slug: TuCuentaGitHub/CppPlantilla`) y pon tu usuario y el nombre de tu nuevo repo.
+- Verifica y adapta el fichero `.vscode/settings.json` a tus gustos.
+- Modifica este fichero `./README.md`
+  - Cambia la primera línea por el título de tu proyecto
+  - Cambia los enlaces a los cuatro Badges: C++, Licencia, Build, Codecov.
+- Empieza a codificar, cambia los fuentes incluidos como ejemplo:
+  - `./tests/main.cc`
+  - `./src/my_lib/my_lib.cc`
+  - `./src/my_lib/my_lib.h`
+  - `./app/main.cc`
+- Revisa los `CMakeLists.txt` para indicar tus fuentes, librerías, gestores, etc.
+  - `./CMakeLists.txt`
+  - `./src/my_lib/CMakeLists.txt`
+  - `./app/CMakeLists.txt`
+
+&nbsp;
+
+## Documentación CppPlantilla
+
+Plantilla para crear un proyecto en C++:
 
 - Bibliotecas, ejecutables y código de prueba separados en carpetas distintas
 - Uso de CMake para construir y compilar
@@ -19,6 +50,8 @@ Ejemplod de plantilla para crear un proyecto en C++:
 - Informes de cobertura del código, incluida la carga automática a [Codecov](https://codecov.io)
 - Documentación del código con [Doxygen](https://doxygen.nl/) y [Github Pages](https://franneck94.github.io/CppProjectTemplate/)
 - Herramientas: Clang-Format, Cmake-Format, Clang-tidy, Sanitizers
+
+&nbsp;
 
 ## Estructura
 
@@ -46,6 +79,8 @@ Ejemplod de plantilla para crear un proyecto en C++:
 
 El código de la librería está en [src/](src/), el programa en [app/](app) y los tests en [tests/](tests/).
 
+&nbsp;
+
 ## Requisitos de software
 
 - CMake 3.21+
@@ -56,7 +91,7 @@ El código de la librería está en [src/](src/), el programa en [app/](app) y l
 - Opcional: Code Coverage (Solo sobre GNU|Clang): lcov, gcovr
 - Optional: Makefile, Doxygen, Conan, VCPKG
 
-<br/>
+&nbsp;
 
 ## Instalación y construcción
 
@@ -107,7 +142,7 @@ cmake --build . --config Debug --target coverage
 
 Si quieres saber más sobre CMake consulta [este artículo](./README_cmake.md).
 
-<br/>
+&nbsp;
 
 ## Preparar GitHub Pages
 
@@ -122,15 +157,15 @@ Para este respositorio sigue esta chuleta:
 Crea una nueva branch, sin histórico ni contenido, llamada `gh-pages`
 
 ```shell
-$ git checkout --orphan gh-pages
-$ git rm -rf .
+git checkout --orphan gh-pages
+git rm -rf .
 
-$ mkdir docs
-$ cd docs
-$ touch .keep.txt
-$ git add .
-$ git commit -m 'Creación inicial de la rama gh-pages'
-$ git push --set-upstream origin gh-pages
+mkdir docs
+cd docs
+touch .keep.txt
+git add .
+git commit -m 'Creación inicial de la rama gh-pages'
+git push --set-upstream origin gh-pages
 ```
 
 - Entra en GitHub desde el navegador y activa GitHub Pages.
@@ -151,8 +186,8 @@ $ git push --set-upstream origin gh-pages
 - Haz un push al repositorio.
 
 ```shell
-$ touch algo.txt
-$ git push
+touch algo.txt
+git push
 ```
 
 - Ve a tu repositorio -> Actions (debería estar construyendo la documentación)

@@ -1,4 +1,4 @@
-name: LP - CI Tests en MacOS
+name: CI Tests en MacOS
 
 on:
     push:
@@ -8,19 +8,23 @@ on:
 
 jobs:
     build:
-        runs-on: macos-latest
+        runs-on: macos-14
         steps:
             - uses: actions/checkout@v4
-            - name: prepare
+            - name: Preparar
               run: |
                   make prepare
-            - name: configure
+            - name: Instalar Libboost
+              run: |
+                  brew update
+                  brew install boost
+            - name: Configurar CMake
               run: |
                   cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE="Debug"
-            - name: building
+            - name: Compilar
               run: |
                   cmake --build build --config Debug --target unit_tests -j4
-            - name: testing
+            - name: Arrancar los Unit Tests
               run: |
                   cd build
                   cd tests
