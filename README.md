@@ -98,6 +98,7 @@ El código de la librería está en [src/](src/), el programa en [app/](app) y l
 ## Requisitos de software
 
 - CMake 3.21+
+  - `sudo apt install cmake -y`
 - GNU Makefile
 - Doxygen
 - Conan or VCPKG
